@@ -17,7 +17,6 @@ function Table(id, name, email, phone, party){
     this.phone = phone;
     this.party = party;
 };
-
 app.get("/", function(req, res){
     res.sendFile(path.join(__dirname, "index.html"));
 });
@@ -26,8 +25,8 @@ app.get("/api/tables", function(req, res) {
     res.json(reservedTables);
   });
 
-app.get("/reserve", function(req, res) {
-    res.sendFile(path.join(__dirname, "reserve.html"));
+app.get("/add", function(req, res) {
+    res.sendFile(path.join(__dirname, "add.html"));
   });
 
 app.get("/api/wait", function(req, res) {

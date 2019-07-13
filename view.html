@@ -107,7 +107,7 @@ $.get("/api/tables", function(data) {
 $.get("/api/wait", function(data) {
     console.log(data);
     if(data) {
-        var startPlace = 1;
+        var startPlace = 3;
         for(var i = 0;i < data.length;i++){
             var trow = $("<tr>");
             $("#nameOfWaitList").append(trow);

@@ -36,16 +36,7 @@
               </tr>
             </thead>
             <tbody id="whatever">
-              <tr>
-                <th scope="row"><button type="button" class="btn btn-success">1</button></th>
-                <td>Mark</td>
-                <td>3</td>
-              </tr>
-              <tr>
-                <th scope="row"><button type="button" class="btn btn-success">2</button></th>
-                <td>Jacob</td>
-                <td>34</td>
-              </tr>
+            
               
             </tbody>
           </table>
@@ -119,7 +110,7 @@ $.get("/api/wait", function(data) {
         var startPlace = 3;
         for(var i = 0;i < data.length;i++){
             var trow = $("<tr>");
-            $("#whatever").append(trow);
+            $("#nameOfWaitList").append(trow);
             var tplace = $('<th scope="row"><button type="button" class="btn btn-success">' + startPlace + '</button></th>');
             trow.append(tplace);
 

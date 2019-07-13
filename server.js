@@ -42,10 +42,8 @@ app.post("/api/tables", function(req, res) {
     console.log(newTable);
     if(reservedTables.length < 5){
         reservedTables.push(newTable);
-        alert("Your table has been reserved!");
     } else {
         waitListTables.push(newTable);
-        alert("No more reservations! Enjoy the wait list!");
     }
 });
 

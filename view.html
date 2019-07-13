@@ -84,7 +84,7 @@
 $.get("/api/tables", function(data) {
     console.log(data);
     if(data) {
-        var startPlace = 3;
+        var startPlace = 1;
         for(var i = 0;i < data.length;i++){
             var trow = $("<tr>");
             $("#whatever").append(trow);
@@ -107,7 +107,7 @@ $.get("/api/tables", function(data) {
 $.get("/api/wait", function(data) {
     console.log(data);
     if(data) {
-        var startPlace = 3;
+        var startPlace = 1;
         for(var i = 0;i < data.length;i++){
             var trow = $("<tr>");
             $("#nameOfWaitList").append(trow);

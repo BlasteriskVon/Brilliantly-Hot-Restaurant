@@ -33,8 +33,12 @@ app.get("/api/wait", function(req, res) {
     res.json(waitListTables);
   });
 
-app.post("/table", function(req, res) {
-    var newTable = new Table(req.body.id, req.body.name, req.body.email, req.body.phone);
+app.get("/view", function(req, res) {
+    res.sendFile(path.join(__dirname, "view.html"));
+});
+
+app.post("/api/tables", function(req, res) {
+    var newTable = new Table(req.body.uniqueId, req.body.name, req.body.email, req.body.phone, req.body.party);
     console.log(newTable);
     if(reservedTables.length < 5){
         reservedTables.push(newTable);

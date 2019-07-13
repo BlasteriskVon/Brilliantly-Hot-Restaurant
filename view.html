@@ -21,7 +21,7 @@
           <h3>There are only 5 tables! Or be put on the wait-list....</h3>
           <hr>
           <a href="/add"><button class="btn btn-primary btn-lg"><span class="fa fa-plus"></span> Make A New Reservation!</button></a>
-          <a href="/index"><button class="btn btn-success btn-lg"><span
+          <a href="/"><button class="btn btn-success btn-lg"><span
                 class="fa "></span> 🏠</button></a> 
         </div>
         <div class="card">
@@ -35,7 +35,7 @@
                 <th scope="col">Party Number</th>
               </tr>
             </thead>
-            <tbody>
+            <tbody id="whatever">
               <tr>
                 <th scope="row"><button type="button" class="btn btn-success">1</button></th>
                 <td>Mark</td>
@@ -64,7 +64,7 @@
                     <th scope="col">Party Number</th>
                   </tr>
                 </thead>
-                <tbody>
+                <tbody id="nameOfWaitList">
                   <tr>
                     <th scope="row"><button type="button" class="btn btn-success">1</button></th>
                     <td>Mark</td>
@@ -88,3 +88,51 @@
 
 </body>
 </html>
+
+<script type="text/javascript">
+$.get("/api/tables", function(data) {
+    console.log(data);
+    if(data) {
+        var startPlace = 3;
+        for(var i = 0;i < data.length;i++){
+            var trow = $("<tr>");
+            $("#whatever").append(trow);
+            var tplace = $('<th scope="row"><button type="button" class="btn btn-success">' + startPlace + '</button></th>');
+            trow.append(tplace);
+
+            var tname = $("<td>");
+            tname.text(data[i].name);
+            trow.append(tname);
+
+            var tparty = $("<td>");
+            tparty.text(data[i].party);
+            trow.append(tparty);
+
+            startPlace++;
+        }
+    }
+});
+
+$.get("/api/wait", function(data) {
+    console.log(data);
+    if(data) {
+        var startPlace = 3;
+        for(var i = 0;i < data.length;i++){
+            var trow = $("<tr>");
+            $("#whatever").append(trow);
+            var tplace = $('<th scope="row"><button type="button" class="btn btn-success">' + startPlace + '</button></th>');
+            trow.append(tplace);
+
+            var tname = $("<td>");
+            tname.text(data[i].name);
+            trow.append(tname);
+
+            var tparty = $("<td>");
+            tparty.text(data[i].party);
+            trow.append(tparty);
+
+            startPlace++;
+        }
+    }
+});
+</script>

@@ -8,6 +8,7 @@
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
   <script src="https://code.jquery.com/jquery.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+  
 
 </head>
 <body>
@@ -58,6 +59,11 @@
                 <input type="text" class="form-control" id="uniqueId">
               </div>
 
+              <div class="form-group">
+                <label for="party">Party (Number of People)</label>
+                <input type="text" class="form-control" id="party">
+              </div>
+
             </form>
             <br>
             <div class="text-right">
@@ -78,14 +84,22 @@
         name: $("#name").val().trim(),
         phone: $("#phone").val().trim(),
         email: $("#email").val().trim(),
-        uniqueId: $("#uniqueId").val().trim()
+        uniqueId: $("#uniqueId").val().trim(),
+        party: $("#party").val().trim()
       };
 
+      $("#name").val("");
+      $("#phone").val("");
+      $("#email").val("");
+      $("#uniqueId").val("");
+      $("#party").val("");
+
+
       // Question: What does this code do??
-      $.post("/add", newReservation)
+      $.post("/api/tables", newReservation)
         .then(function(data) {
           console.log("add.html", data);
-          alert("Adding reservation...");
+        console.log("Adding reservation...");
         });
     });
   </script>
